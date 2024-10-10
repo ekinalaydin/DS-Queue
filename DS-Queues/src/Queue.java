@@ -20,7 +20,22 @@ public class Queue {
         length = 1;
     }
 
-    public Node getFirst() {
+    public void enqueue(int value) {
+        Node newNode = new Node(value);
+
+        if (length == 0) {
+            first = newNode;
+            last = newNode;
+        } else {
+            //the method sets the next pointer of the current last node to
+            // the new Node, so that the new Node becomes the new last node.
+            last.next = newNode;
+            last = newNode;
+        }
+        length++;
+    }
+
+        public Node getFirst() {
         return first;
     }
 
